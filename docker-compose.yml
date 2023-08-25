@@ -1,0 +1,13 @@
+version: '3.6'
+services:
+  test-version: 
+    build:
+      context: .
+    working_dir: /app
+    volumes:
+      - ./.git/:/app/.git/
+      - ./version.json:/app/version.json
+  publish-version:
+    build:
+      context: .
+    image: "petecapra/nbgv:3.4.244"
